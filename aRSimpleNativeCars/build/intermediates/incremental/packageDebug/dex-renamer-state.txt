@@ -1,4 +1,4 @@
-#Tue Sep 05 15:57:58 CDT 2017
+#Wed Sep 06 16:10:06 CDT 2017
 base.0=/Users/marioavila/Projects/artoolkit5/AndroidStudioProjects/ARSimpleNativeCarsProj/aRSimpleNativeCars/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5b54f65fdbc25378faf806c5bc89b6337b0b0672
 renamed.1=classes2.dex
 renamed.0=classes.dex
