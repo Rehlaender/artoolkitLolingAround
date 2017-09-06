@@ -71,7 +71,7 @@ typedef struct ARModel {
 	GLMmodel* obj;
 } ARModel;
 
-#define NUM_MODELS 2
+#define NUM_MODELS 3
 static ARModel models[NUM_MODELS] = {0};
 
 static float lightAmbient[4] = {0.1f, 0.1f, 0.1f, 1.0f};
@@ -82,6 +82,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_DEMO(demoInitialise(JNIEnv* env, jobject obje
 	
 	const char *model0file = "Data/models/help.obj";
 	const char *model1file = "Data/models/untitled_scene.obj";
+	const char *model2file = "Data/models/potiron2.obj";
 
 	models[0].patternID = arwAddMarker("single;Data/hiro.patt;80");
 	arwSetMarkerOptionBool(models[0].patternID, ARW_MARKER_OPTION_SQUARE_USE_CONT_POSE_ESTIMATION, false);
@@ -110,6 +111,20 @@ JNIEXPORT void JNICALL JNIFUNCTION_DEMO(demoInitialise(JNIEnv* env, jobject obje
 	//glmRotate(models[1].obj, 3.14159f / 2.0f, 1.0f, 0.0f, 0.0f);
 	glmCreateArrays(models[1].obj, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 	models[1].visible = false;
+
+	models[2].patternID = arwAddMarker("single;Data/pedroPattern.patt;80");
+    	arwSetMarkerOptionBool(models[2].patternID, ARW_MARKER_OPTION_SQUARE_USE_CONT_POSE_ESTIMATION, false);
+    	arwSetMarkerOptionBool(models[2].patternID, ARW_MARKER_OPTION_FILTERED, true);
+
+    	models[2].obj = glmReadOBJ2(model2file, 0, 0); // context 0, don't read textures yet.
+    	if (!models[2].obj) {
+    		LOGE("Error loading model from file '%s'.", model0file);
+    		exit(-1);
+    	}
+    	glmScale(models[2].obj, 50.0f);
+    	//glmRotate(models[0].obj, 3.14159f / 2.0f, 1.0f, 0.0f, 0.0f);
+    	glmCreateArrays(models[2].obj, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+    	models[2].visible = false;
 }
 
 JNIEXPORT void JNICALL JNIFUNCTION_DEMO(demoShutdown(JNIEnv* env, jobject object)) {
