@@ -80,11 +80,11 @@ static float lightPosition[4] = {0.0f, 0.0f, 1.0f, 0.0f};
 
 JNIEXPORT void JNICALL JNIFUNCTION_DEMO(demoInitialise(JNIEnv* env, jobject object)) {
 	
-	const char *model0file = "Data/models/help.obj";
-	const char *model1file = "Data/models/untitled_scene.obj";
-	const char *model2file = "Data/models/potiron2.obj";
+	const char *model0file = "Data/models/maarSword.obj";
+	const char *model1file = "Data/models/help.obj";
+	const char *model2file = "Data/models/sock2.obj";
 
-	models[0].patternID = arwAddMarker("single;Data/maar.patt;80");
+	models[0].patternID = arwAddMarker("single;Data/espada.patt;80");
 	arwSetMarkerOptionBool(models[0].patternID, ARW_MARKER_OPTION_SQUARE_USE_CONT_POSE_ESTIMATION, false);
 	arwSetMarkerOptionBool(models[0].patternID, ARW_MARKER_OPTION_FILTERED, true);
 
@@ -98,7 +98,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_DEMO(demoInitialise(JNIEnv* env, jobject obje
 	glmCreateArrays(models[0].obj, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 	models[0].visible = false;
 	
-	models[1].patternID = arwAddMarker("single;Data/espada.patt;80");
+	models[1].patternID = arwAddMarker("single;Data/maar.patt;80");
 	arwSetMarkerOptionBool(models[1].patternID, ARW_MARKER_OPTION_SQUARE_USE_CONT_POSE_ESTIMATION, false);
 	arwSetMarkerOptionBool(models[1].patternID, ARW_MARKER_OPTION_FILTERED, true);
 
@@ -121,7 +121,7 @@ JNIEXPORT void JNICALL JNIFUNCTION_DEMO(demoInitialise(JNIEnv* env, jobject obje
     		LOGE("Error loading model from file '%s'.", model0file);
     		exit(-1);
     	}
-    	glmScale(models[2].obj, 50.0f);
+    	glmScale(models[2].obj, 500.0f);
     	//glmRotate(models[0].obj, 3.14159f / 2.0f, 1.0f, 0.0f, 0.0f);
     	glmCreateArrays(models[2].obj, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
     	models[2].visible = false;
